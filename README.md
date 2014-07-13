@@ -1,6 +1,9 @@
 metalsmith-gravatar
 ====
 
+[![Build Status](https://travis-ci.org/stevenschobert/metalsmith-gravatar.svg?branch=master)](https://travis-ci.org/stevenschobert/metalsmith-gravatar)
+[![Dependency Status](https://gemnasium.com/stevenschobert/metalsmith-gravatar.svg)](https://gemnasium.com/stevenschobert/metalsmith-gravatar)
+
 > A [Metalsmith](http://metalsmith.io) plugin for [Gravatar](http://gravatar.com).
 
 This plugin converts email addresses into their associated Gravatar URLs and adds them to
@@ -86,7 +89,7 @@ names:
 ## Options
 
 If you want more control over how the Gravatar URLs are generated, you can specify an `options`
-object. If the plugin see's this `options` object, it will expect the avatars you wish to convert to
+object. If the plugin sees this `options` object, it will expect the avatars you wish to convert to
 be in a new `avatars` object:
 
 ```json
@@ -109,7 +112,7 @@ Below is a list of options that are supported:
 
 ### protocol
 
-`(string)`: `'http'` (default) or `'https'`
+`String` - `'http' (default))` or `'https'`
 
 Sets the URL prefix for Gravatar images. Useful if you are serving a page via SSL and want to also
 load the external images via SSL.
