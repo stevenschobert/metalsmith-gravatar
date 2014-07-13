@@ -112,7 +112,7 @@ Below is a list of options that are supported:
 
 ### protocol
 
-`String` - `'http' (default))` or `'https'`
+`String` - `'http' (default)` or `'https'`
 
 Sets the URL prefix for Gravatar images. Useful if you are serving a page via SSL and want to also
 load the external images via SSL.
