@@ -23,8 +23,8 @@
           test: testEmail
         }))
         .use(function(files, metalsmith, done) {
-          assert(Object.keys(metalsmith.data).indexOf('gravatar') >= 0);
-          assert.equal(metalsmith.data.gravatar.test, expected);
+          assert(Object.keys(metalsmith.metadata()).indexOf('gravatar') >= 0);
+          assert.equal(metalsmith.metadata().gravatar.test, expected);
           done();
         })
         .build(testDone);
@@ -39,8 +39,8 @@
           }
         }))
         .use(function(files, metalsmith, done) {
-          assert.equal(metalsmith.data.gravatar.nested.test, expected);
-          assert.deepEqual(metalsmith.data.gravatar.nested.someArray, []);
+          assert.equal(metalsmith.metadata().gravatar.nested.test, expected);
+          assert.deepEqual(metalsmith.metadata().gravatar.nested.someArray, []);
           done();
         })
         .build(testDone);
@@ -56,9 +56,9 @@
             }
           }))
           .use(function(files, metalsmith, done) {
-            assert.equal(metalsmith.data.gravatar.options, undefined);
-            assert.equal(metalsmith.data.gravatar.emails, undefined);
-            assert.equal(metalsmith.data.gravatar.test, expected);
+            assert.equal(metalsmith.metadata().gravatar.options, undefined);
+            assert.equal(metalsmith.metadata().gravatar.emails, undefined);
+            assert.equal(metalsmith.metadata().gravatar.test, expected);
             done();
           })
           .build(testDone);
@@ -79,7 +79,7 @@
             }
           }))
           .use(function(files, metalsmith, done) {
-            assert.equal(metalsmith.data.gravatar.test, expected);
+            assert.equal(metalsmith.metadata().gravatar.test, expected);
             done();
           })
           .build(testDone);
