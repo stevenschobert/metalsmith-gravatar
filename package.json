@@ -1,7 +1,8 @@
 {
   "name": "metalsmith-gravatar",
-  "version": "0.0.0",
-  "description": "A metalsmith plugin for gravatar.",
+  "version": "0.1.0",
+  "author": "Steven Schobert <spschobert@gmail.com>",
+  "description": "A Metalsmith plugin for Gravatar.",
   "main": "./lib/index.js",
   "keywords": [
     "metalsmith",
@@ -22,7 +23,6 @@
   "scripts": {
     "test": "./node_modules/.bin/jshint --reporter ./node_modules/jshint-stylish/stylish.js lib/** test/** && ./node_modules/.bin/mocha -R spec test/**"
   },
-  "author": "Steven Schobert <spschobert@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "assert": "^1.1.1",
