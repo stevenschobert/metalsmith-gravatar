@@ -1,0 +1,33 @@
+{
+  "name": "metalsmith-gravatar",
+  "version": "0.0.0",
+  "description": "A metalsmith plugin for gravatar.",
+  "main": "./lib/index.js",
+  "keywords": [
+    "metalsmith",
+    "gravatar"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stevenschobert/metalsmith-gravatar.git"
+  },
+  "homepage": "https://github.com/stevenschobert/metalsmith-gravatar",
+  "bugs": {
+    "url": "https://github.com/stevenschobert/metalsmith-gravatar/issues"
+  },
+  "directories": {
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/jshint --reporter ./node_modules/jshint-stylish/stylish.js lib/** test/** && ./node_modules/.bin/mocha -R spec test/**"
+  },
+  "author": "Steven Schobert <spschobert@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "assert": "^1.1.1",
+    "jshint-stylish": "^0.4.0",
+    "mocha": "^1.20.1",
+    "jshint": "^2.5.2"
+  }
+}
