@@ -14,7 +14,7 @@
         testEmail = 'spschobert@gmail.com',
         testHash = 'bc13eedc2642303b1a2251a4da7f157e',
         defaultProtocol = 'http',
-        secureProtocol = 'http',
+        secureProtocol = 'https',
         expected = assembleUrl(defaultProtocol, baseUrl, testHash);
 
     it('should convert email addresses to urls', function(testDone) {
@@ -58,6 +58,27 @@
           .use(function(files, metalsmith, done) {
             assert.equal(metalsmith.data.gravatar.options, undefined);
             assert.equal(metalsmith.data.gravatar.emails, undefined);
+            assert.equal(metalsmith.data.gravatar.test, expected);
+            done();
+          })
+          .build(testDone);
+      });
+    });
+
+    describe('the protocol option', function() {
+      it('should control the protocol', function(testDone) {
+        var expected = assembleUrl(secureProtocol, baseUrl, testHash);
+
+        new Metalsmith(__dirname)
+          .use(gravatar({
+            options: {
+              protocol: 'https'
+            },
+            avatars: {
+              test: testEmail
+            }
+          }))
+          .use(function(files, metalsmith, done) {
             assert.equal(metalsmith.data.gravatar.test, expected);
             done();
           })
