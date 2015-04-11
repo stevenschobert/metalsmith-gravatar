@@ -79,14 +79,14 @@ multiple avatars into named groups!
 }
 ```
 
-Nested objects map directly into the output'ed `gravatar` object, so you can access them by the same
+Nested objects map directly into the outputted `gravatar` object, so you can access them by the same
 names:
 
 ```html
 <img src="{{gravatar.authors.stevenschobert}}" />
 ```
 
-## Options
+## Global Options
 
 If you want more control over how the Gravatar URLs are generated, you can specify an `options`
 object. If the plugin sees this `options` object, it will expect the avatars you wish to convert to
@@ -108,14 +108,89 @@ be in a new `avatars` object:
 }
 ```
 
-Below is a list of options that are supported:
+## Individual Avatar Options
 
-### protocol
+Options can also be given for individual avatars. Any options given for an individual
+avatar will override the global version of the same setting. In order to add options
+for an individual avatar, set the avatar property to an `object` with an `email`
+property:
+
+```json
+{
+  "plugins": {
+    "metalsmith-gravatar": {
+      "stevenschobert": {
+        "email": "spschobert@gmail.com"
+      }
+    }
+  }
+}
+```
+
+## Valid Options
+
+### protocol (global only)
 
 `String` - `'http' (default)` or `'https'`
 
 Sets the URL prefix for Gravatar images. Useful if you are serving a page via SSL and want to also
 load the external images via SSL.
+
+### querystring (global or individual)
+
+`String` or `Object`
+
+Adds a query string to all Gravatar URLs to all for modifications to the requested image, including
+image size, default image, and max rating (g, pg, r, x). The query string parameters are detailed
+on [Gravatar's website](https://en.gravatar.com/site/implement/images/). Here is the string version:
+
+```json
+{
+  "plugins": {
+    "metalsmith-gravatar": {
+      "options": {
+        "querystring": "s=200&r=pg"
+      },
+      "avatars": {
+        "stevenschobert": "spschobert@gmail.com",
+        "roadrunner": {
+          "email": "roadrunnermeepmeep@gmail.com",
+           "querystring": "s=400&r=g"
+        },
+        "authors": { ... }
+      }
+    }
+  }
+}
+```
+
+Here is the object version:
+
+```json
+{
+  "plugins": {
+    "metalsmith-gravatar": {
+      "options": {
+        "querystring": {
+          "s": 200,
+          "r": "pg"
+        }
+      },
+      "avatars": {
+        "stevenschobert": "spschobert@gmail.com",
+        "roadrunner": {
+          "email": "roadrunnermeepmeep@gmail.com",
+           "querystring": {
+             "s": 400,
+             "r": "g"
+           }
+        },
+        "authors": { ... }
+      }
+    }
+  }
+}
+```
 
 ## Credits
 
